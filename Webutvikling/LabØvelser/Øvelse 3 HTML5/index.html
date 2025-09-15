@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Øvelse 3 HTML5</title>
+    <title>Hjem</title>
 </head>
 <body>
     <header>
@@ -11,31 +11,84 @@
         <nav>
             <ul>
                 <li><a href="index.html">Hjem</a></li>
-                <li><a href="sideområde.html">Produkter</a></li>
-                <li><a href=""></a></li>
+                <li><a href="kontaktoss.html">Kontakt oss</a></li>
+                <li><a href="labovelser.html">Labøvelser</a></li>
+                <li><a href="mal.html">Mal</a></li>
             </ul>
         </nav>
     </header>
     <section>
     <main> 
-        <h1>Her kan vi legge inn den viktigste overskriften</h1>
-
-        <p>Her kan vi skrive de viktigste artiklene</p>
-
+        <section>
+            <article>
+                <h2>Kontakt oss</h2>
+                <a href="kontaktoss.html">Her kan dere kontakte oss</a>
+            </article>
+           
+            <article>
+                <h2>Studieplan</h2>
+                <a href="labovelser.html">Her finner du informasjon om studieplan</a>
+            </article>
+        </section>
     </main>
-    </section>
-
+    
     <aside>
+        <section>
+            <h2>Linker til 5 artikler om Semantisk HTML</h2>
+            <ul>
+                <li>
+                    <a href="https://ndla.no/nn/r/konseptutvikling-og-programmering-im-ikm-vg1/semantisk-html/0d94e80dec">Semantisk HTML NDLA</a>
+                </li>
+                <li>
+                    <a href="https://www.w3schools.com/html/html5_semantic_elements.asp">HTML Semantic Elements</a>
+                </li>
+                <li>
+                    <a href="https://web.dev/learn/html/semantic-html">Semantic HTML</a>
+                </li>
+                <li>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements">HTML elements reference - MDN - Mozilla
+                    </a>
+                </li>
+                <li>
+                    <a href="https://data.europa.eu/apps/data-visualisation-guide/semantic-html">Semantic HTML - data.europa.eu
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Link til Google sine søkeresultater om HTML 5</h2>
+            <p>
+                <a href="https://www.google.com/search?q=HTML+5&sca_esv=fe03dc12a99e2005&sxsrf=AE3TifP5lctU_NQ8w8mO06yWFNGAXqCVvQ%3A1757348666844&ei=OgO_aMunM9GB9u8P0_-u0A8&ved=0ahUKEwjLrKL4ycmPAxXRgP0HHdO_C_oQ4dUDCBA&uact=5&oq=HTML+5&gs_lp=Egxnd3Mtd2l6LXNlcnAiBkhUTUwgNTIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzINEAAYgAQYsAMYQxiKBTINEAAYgAQYsAMYQxiKBUjUAlAAWABwAXgBkAEAmAEAoAEAqgEAuAEDyAEAmAIBoAIEmAMAiAYBkAYKkgcBMaAHALIHALgHAMIHAzItMcgHAw&sclient=gws-wiz-serp">Google søk: HTML 5</a>
+            </p>
+
+        </section>
+    </aside>
+
+    </section>
+    <footer>
         
         <form>
-           <h4>Kontakt meg her:</h4>
+            <h4>Kontakt meg her:</h4>
             <p>Thomas Fjellgaard: thomasdf@hiof.no</p>
-            <label for="name"></label>
-
-
-
-
+            <label>Din E-post:
+                <input type="email" placeholder="ola.nordmann@hiof.no">
+            </label>
+            <label> Navn: 
+                <input type="text" id="navn" name="userMessage" placeholder="skriv her">
+            </label>
+        
         </form>
-    </aside>
+
+        <form>
+            <label> Emne: 
+                <input type="text" id="emne" name="userMessage" placeholder="skriv her">
+            </label>
+            <label>Din melding: 
+                <input type="text" id="message" name="userMessage" placeholder="Skriv her">
+            </label>
+            <button type="submit">Send</button>
+        </form>
+
+    </footer>
 </body>
 </html>
