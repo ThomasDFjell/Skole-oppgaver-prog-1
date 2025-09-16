@@ -11,16 +11,16 @@
     </ul>
 
     <script>
-        // Lager klar en tom HTML-variabel.
-        let htmlstring = ""
-        // for-løkke som starter på 10, teller så lenge teller er større eller lik 0, og trekker fra en for hver runde løkken går:
-        for(let teller = 10; teller >= 0; teller--) {
-            htmlstring += `<li>${teller === 0 ? "We have take-off" : teller}</li>`
+        let htmlString = ""
+
+        for (teller = 10; teller >= 0; teller--) {
+            if (teller === 0) {
+                htmlString += `<li>We have take-off</li>`
+            }
         }
-
-
-        //Skriver ut htmlstring inn i ul med id nedtelling:
-        document.getElementById("nedtelling").innerHTML = htmlstring
+        
+        
+        document.getElementById("nedtelling").innerHTML = htmlString
     </script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 2 - Løkker</title>
+</head>
+<body>
+    <ul id="nedtelling">
+
+
+    </ul>
+
+    <script>
+        let htmlstring = ""
+
+        let teller = 10
+
+        while(teller >= 0) {
+            htmlstring += `<li>${teller === 0 ? "We have take-off" : teller}</li>`
+
+             teller--
+        }
+
+
+
+        document.getElementById("nedtelling").innerHTML = htmlstring
+    </script>
+    
+</body>
+</html>

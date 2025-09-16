@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3 - Løkker</title>
+</head>
+<body>
+    <ul id="animals">
+
+
+    </ul>
+
+    <script>
+        const animals = ["Cat", "Dog", "Turtle", "Horse", "Hedgehog", "Peacock", "Blue whale", "Snake", "Frog", "Pikachu"]
+
+        let htmlstring = ""
+
+        for(let counter = 0; counter < animals.length; counter++) {
+            htmlstring += `<li>${animals[counter]}</li>`
+        }
+
+        document.getElementById("animals").innerHTML = htmlstring
+
+    </script>
+    
+</body>
+</html>
