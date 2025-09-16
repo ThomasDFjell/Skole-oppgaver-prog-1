@@ -53,7 +53,7 @@
         let ak_key 
         
         //Turn on or off safeguard to allow system to run
-        //Feil 6: Her står det skrevet false, men systemet kjører ikke med mindre det endres til true
+        //Feil 3: Her står det skrevet false, men systemet kjører ikke med mindre det endres til true
         const safeguard = true
         
         //Control of safeguard to create image folder name
@@ -61,7 +61,7 @@
             ak_key = secret_key + 1
         }
         const safe_images_folder = images_folder += ak_key
-        //Feil 3: står skrevet "console.logg" endrer det til console.log
+        //Feil 4: står skrevet "console.logg" endrer det til console.log
         console.log("Image folder: " + safe_images_folder)
 
         let HTML_employees = ""
@@ -74,8 +74,8 @@
                     <p>${e.position} | Kontor: ${e.office}</p>
                     <p>${e.email}</p>
                 </article>`)
-                // Feil 4: står skrevet "getElementbyId" jeg endrer det til "getElementById".
-                //Feil 5: HTML_emplyeeees er skrevet feil. blir rettet opp til HTML_employees
+                // Feil 5: står skrevet "getElementbyId" jeg endrer det til "getElementById".
+                //Feil 6: HTML_emplyeeees er skrevet feil. blir rettet opp til HTML_employees
                 document.getElementById("employee_list").innerHTML = HTML_employees
         }
 
