@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3 - Funksjoner</title>
+</head>
+<body>
+    <p id="name"></p>
+    <p id="age"></p>
+    <p id="mail"></p>
+
+    <script>
+        function namePrint(name = "Ikke oppgitt", birthyear = "Ikke oppgitt", email = "Ikke oppgitt") {
+            document.getElementById("name").innerHTML = name
+
+            if (birthyear === "Ikke oppgitt") {
+                document.getElementById("age").innerHTML = birthyear
+            } else {
+                const birthYearNumber = Number(birthyear)
+                const age = 2025 - birthYearNumber
+                document.getElementById("age").innerHTML = age
+            }
+            document.getElementById("mail").innerHTML = email
+        }
+
+        namePrint("Thomas", 1983)
+
+
+    </script>
+</body>
+</html>
