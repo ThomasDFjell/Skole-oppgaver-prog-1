@@ -8,31 +8,84 @@
 <body>
     <h1>Arbeidskrav 2</h1>
     <p>Denne nettsiden skal ha noen ulike funksjoner, som beskrevet i <a href="https://hiof.instructure.com/courses/9942/assignments/46701" target="_blank">oppgaveteksten i canvas.</a></p>
+    
     <h2>Problem 1</h2>
     <p>Tilfeldig hexadesimal fargekode: <span id="random_color"></span></p>
+    
     <h2>Problem 2</h2>
     <p>Finnes ordet "betingelse" i Programmeringsord-arrayen? <span id="betingelse_sjekk"></span></p>
     <p>Finnes ordet "algoritme" i Programmeringsord-arrayen? <span id="algoritme_sjekk"></span></p>
     <p>Finnes ordet "problemløsning" i Programmeringsord-arrayen? <span id="problemlosning_sjekk"></span></p>
+    
     <h2>Problem 3</h2>
     <p>Gjennomsnittet av tallene i tall_array_en er <span id="avg_array_one"></span></p>
-    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_one"></span></p>
+    <!-- Jeg rettet IDen under fra "avg_array_one" til "avg_array_two" for at koden skulle fungere -->
+    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_two"></span></p>
 
     <script>
         //PROBLEM 1
         
-        //AI-kode for å løse problem 1 her.
+        /**
+         * Genererer en tilfeldig heksadesimal fargekode.
+         * @returns {string} En fargekode som starter med # etterfulgt av 6 tilfeldige hex-tegn.
+         */
+        function genererTilfeldigHexFarge() {
+            const hexTegn = '0123456789ABCDEF';
+            let farge = '#';
+            for (let i = 0; i < 6; i++) {
+                farge += hexTegn[Math.floor(Math.random() * 16)];
+            }
+            return farge;
+        }
+        
+        // Henter elementet og setter fargekoden
+        const randomColorSpan = document.getElementById('random_color');
+        const nyFarge = genererTilfeldigHexFarge();
+        randomColorSpan.textContent = nyFarge;
+        // Bonus: Setter også fargen på teksten til den genererte fargen
+        randomColorSpan.style.color = nyFarge;
+
 
         //PROBLEM 2
-        const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
+        const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"];
 
-        //AI-kode for å løse problem 2 her.
+        /**
+         * Sjekker om et ord finnes i en array.
+         * @param {string[]} array - Listen med ord.
+         * @param {string} word - Ordet som skal sjekkes.
+         * @returns {string} Returnerer "Ja" hvis ordet finnes, ellers "Nei".
+         */
+        function sjekkOmOrdFinnes(array, word) {
+            return array.includes(word) ? "Ja" : "Nei";
+        }
+
+        // Henter elementene og viser resultatet av sjekken
+        document.getElementById('betingelse_sjekk').textContent = sjekkOmOrdFinnes(programming_words, 'betingelse');
+        document.getElementById('algoritme_sjekk').textContent = sjekkOmOrdFinnes(programming_words, 'algoritme');
+        document.getElementById('problemlosning_sjekk').textContent = sjekkOmOrdFinnes(programming_words, 'problemløsning');
+        
 
         //PROBLEM 3
-        const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17]
-        const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
+        const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17];
+        const tall_array_to = [23, 76, 88, 13, 56, 90, 42];
 
-        //AI-kode for å løse problem 3 her.
+        /**
+         * Kalkulerer gjennomsnittet av tall i en array.
+         * @param {number[]} array - Listen med tall.
+         * @returns {number} Gjennomsnittet av tallene.
+         */
+        function beregnGjennomsnitt(array) {
+            if (array.length === 0) {
+                return 0; // For å unngå deling på null hvis arrayen er tom
+            }
+            const sum = array.reduce((total, num) => total + num, 0);
+            return sum / array.length;
+        }
+        
+        // Henter elementene og viser gjennomsnittet (avrundet til to desimaler)
+        document.getElementById('avg_array_one').textContent = beregnGjennomsnitt(tall_array_en).toFixed(2);
+        document.getElementById('avg_array_two').textContent = beregnGjennomsnitt(tall_array_to).toFixed(2);
+
     </script>
 </body>
 </html>
