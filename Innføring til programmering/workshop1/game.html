@@ -14,10 +14,10 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <header> 
+    <header>
         <section id="player">
             <ul>
-                <li><img src="icons/shield.svg"> <span id="playerName">Marius</span></li>
+                <li><img src="icons/shield.svg"> <span id="playerName"></span></li>
                 <li><img src="icons/energydrink.svg" title="energy"> <span id="energy">3</span></li>
                 <li><img src="icons/notebook.svg"> <span id="notebookItems">0</span></li>
                 <li><img src="icons/solution.svg"> <span id="points">0</span> poeng</li>
@@ -45,17 +45,17 @@
                     <tr>
                         <td><img src="icons/array.svg" alt="" /></td>
                         <td>Arrayer</td>
-                        <td><span id="arrays">1</span></td>
+                        <td><span id="arrays">0</span></td>
                     </tr>
                     <tr>
                         <td><img src="icons/loop.svg" alt="" /></td>
                         <td>Løkker</td>
-                        <td><span id="loops">2</span></td>
+                        <td><span id="loops">0</span></td>
                     </tr>
                     <tr>
                         <td><img src="icons/function.svg" alt="" /></td>
                         <td>Funksjoner</td>
-                        <td><span id="functions">1</span></td>
+                        <td><span id="functions">0</span></td>
                     </tr>
                 </table>
             </div>
@@ -76,42 +76,42 @@
     <script>
         //PREPARE GAME CONFIG AND VARIABLES
         //TODO: config
-        const gameConfig = {
-            playerName: "Thomas",
-            energy: 10,
-            points: 4000,
-            duration: 30
-        }
 
-        console.log(gameConfig)
+        const gameConfig = {
+            player: "",
+            energy: 5,
+            points: 10,
+            duration: 138
+        }
        
         //TODO: notebook
         const notebook = {
             variables: 2,
-            loops: 4,
-            functions: 3,
-            arrays: 7
+            arrays: 4,
+            loops: 3,
+            functions: 7,
         }
 
-        
-
         //(BONUS) TODO: function for all prints
+
         function updateStaticUI(){
         //TODO: print playerinfo to HTML
         //Vi kan lagre HTML-elementer i variabler for lettere testing/kontroll i logg.
         let playerNameHTML = document.getElementById("playerName")
 
-        if(gameConfig.playerName === ""){
+        if(gameConfig.player === ""){
             document.getElementById("playerName").innerHTML = "Waiting for player..."
-            // Her tvinger vi gameConfig-verdiene til å være 0 dersom spiller ikke er "logget inn"
+            // Her tvinger vi gameConfig-verdiene til å være 0 dersom spillernavn ikke er "logget inn"
             for(key in gameConfig){
                 gameConfig[key] = 0
             }
+
             for(key in notebook){
                 notebook[key] = 0
             }
+            
         } else {
-            document.getElementById("playerName").innerHTML = gameConfig.playerName
+            document.getElementById("playerName").innerHTML = gameConfig.player
         }
 
         document.getElementById("energy").innerHTML = gameConfig.energy
@@ -125,34 +125,9 @@
         document.getElementById("loops").innerHTML = notebook.loops
         document.getElementById("functions").innerHTML = notebook.functions
     }
-
-        updateStaticUI() 
-
-        function toggleVisibility(elementid) {
-            console.log(elementid)
-            const elem = document.getElementById(elementid)
-            if (elem.classList.contains("hidden")) {
-                elem.classList.display = "block"
-                elem.classList.remove("hidden")
-            } else {
-                elem.classList.display = "none"
-                elem.classList.add("hidden")
-            }
-        }
-
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "n") {
-                toggleVisibility("notebook")
-            }
-            if (event.key === "i") {
-                toggleVisibility("info")
-            }
-        })
-
-
-
-
-
+    
+    updateStaticUI()
+        
     </script>
 </body>
 </html>
