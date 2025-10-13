@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport", content="width=device-width, initial-scale=1.0">
+        <title>Oppgave 1 - Canvas</title>
+    </head>
+    <body>
+        
+        <canvas id="kors"></canvas>
+        
+        <script>
+            const canvas = document.getElementById("kors")
+            canvas.width = 500
+            canvas.height = 500
+            const context = canvas.getContext("2d")
+
+            context.moveTo(0, 0)
+            context.lineTo(500, 500)
+            
+            context.moveTo(500, 0)
+            context.lineTo(0, 500)
+            
+
+
+            
+            context.stroke()
+
+
+            
+        </script>
+
+
+
+    </body>
+</html>

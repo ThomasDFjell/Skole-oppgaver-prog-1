@@ -16,3 +16,4 @@ ham.addEventListener('click', ()=>{
 closeM.addEventListener('click', ()=>{
     menu.classList.toggle('hidden')
 })
+ 

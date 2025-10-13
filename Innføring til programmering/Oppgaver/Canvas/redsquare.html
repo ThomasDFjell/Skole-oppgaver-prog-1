@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport", content="width=device-width, initial-scale=1.0">
+        <title>Oppgave 2: Squares</title>
+    </head>
+    <body>
+        <canvas id="redsquare"></canvas>
+        
+        <script>
+            const canvas = document.getElementById("redsquare")
+            canvas.width = 600
+            canvas.height = 600
+            const context = canvas.getContext("2d")
+            
+            //Red kvadrat
+            context.beginPath();
+            context.lineWidth = "6";
+            context.strokeStyle = "black";
+            context.fillStyle = "red";
+            context.rect(5, 5, 200, 200);
+            context.stroke();
+            context.fill()
+
+            //Green kvadrat
+            context.beginPath();
+            context.lineWidth = "6";
+            context.strokeStyle = "black";
+            context.fillStyle = "green";
+            context.rect(30, 30, 200, 200);
+            context.stroke();
+            context.fill();
+            
+            //Blue kvadrat
+            context.beginPath();
+            context.lineWidth = "6";
+            context.strokeStyle = "black";
+            context.fillStyle = "blue";
+            context.rect(50, 50, 200, 200);
+            context.stroke();
+            context.fill()
+            
+            
+            
+            
+            
+ 
+
+
+
+        </script>
+    </body>
+</html>

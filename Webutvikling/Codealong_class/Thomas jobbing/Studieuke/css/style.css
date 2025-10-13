@@ -2,7 +2,7 @@
 
 * {
     box-sizing: border-box;
-}
+} 
 
 body {
     font-family: "Roboto", sans-serif;
@@ -45,29 +45,63 @@ img {
 }
 
 .highlight { 
-    padding: 1rem;
+    padding: 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    
+
+    >* {
+        width: 50%;
+        min-width: 350px;
+        flex-grow: 1;
+    }
 
     figure {
         margin: 0;
 
+        img {
+            height: 100%;
+        }
     }
+
+    section {
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+}
+
+.highlight:nth-child(even){
+    flex-direction: row-reverse;
 }
 
 #services {
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
+    justify-content: center;
+    background-color: #f6f6f6;
 
     h2 {
         width: 100%;
+        text-align: center;
     }
 
     .service-card {
-        width: 100%;
+        width: 33%;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        min-width: 250px;
+        /*max-width: 400px;*/
+        flex-grow: 1;
+
 
         i {
-            width: 50px;
-            height: 50px;
+            min-width: 50px;
+            min-height: 50px;
             padding: 0.5rem;
             border-radius: 100%;
             border: 1px solid #000;
@@ -90,6 +124,26 @@ img {
 .hidden{
     display: none;
 }
+
+#menu {
+    list-style: none;
+    margin: 0;
+
+    li:first-child {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+    }
+}
+
+#close {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    
+}
+
 
 .icon-btn {
     background-color: transparent;
@@ -115,23 +169,44 @@ img {
 }
 
 
+@media only screen and (min-width: 789px) {
+
+    #services {
+        h2 {
+            text-align: center;
+        }
+    }
+
+
+    .service-card {
+        max-width: 450px;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+
 @media only screen and (min-width:600px){
     
 
     header{
         display: flex;
         justify-content: space-between; /
+    }
 
-    
+    .hidden {
         display: inline-block;
     }
 
     
+
+    
     #menu{
-        ul{
-            display: flex; 
-            gap: 1rem;     
-        }
+        
+        display: flex; 
+        gap: 1rem;     
+        
     }
 
     #ham{
@@ -139,6 +214,10 @@ img {
     }
 
     #close{
+        display: none;
+    }
+
+    .group {
         display: none;
     }
 
