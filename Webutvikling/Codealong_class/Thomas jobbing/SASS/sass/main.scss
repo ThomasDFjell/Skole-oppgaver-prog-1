@@ -1,4 +1,9 @@
+@use 'fonts';
+@use 'colors';
+@use 'layout';
+
 body {
     margin: 0;
-    padding: 1rem;
+    font-family: fonts.$main-font;
+    color: colors.$primary-color;
 }
