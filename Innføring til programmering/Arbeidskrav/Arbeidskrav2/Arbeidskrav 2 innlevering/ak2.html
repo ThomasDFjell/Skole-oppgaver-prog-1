@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+</head>
+<body>
+    <h1>Arbeidskrav 2</h1>
+    <p>Denne nettsiden skal ha noen ulike funksjoner, som beskrevet i <a href="https://hiof.instructure.com/courses/9942/assignments/46701" target="_blank">oppgaveteksten i canvas.</a></p>
+    <h2>Problem 1</h2>
+    <p>Tilfeldig hexadesimal fargekode: <span id="random_color"></span></p>
+    <h2>Problem 2</h2>
+    <p>Finnes ordet "betingelse" i Programmeringsord-arrayen? <span id="betingelse_sjekk"></span></p>
+    <p>Finnes ordet "algoritme" i Programmeringsord-arrayen? <span id="algoritme_sjekk"></span></p>
+    <p>Finnes ordet "problemløsning" i Programmeringsord-arrayen? <span id="problemlosning_sjekk"></span></p>
+    <h2>Problem 3</h2>
+    <p>Gjennomsnittet av tallene i tall_array_en er <span id="avg_array_en"></span></p>
+    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_to"></span></p>
+
+    <script>
+        //PROBLEM 1
+        const hexadecimal_characters = "ABCDEF1234567890"
+        const hexadecimal_characters_array = Array.from(hexadecimal_characters)
+        //Din kode for å løse problem 1 her.
+        const randomElement1 = hexadecimal_characters_array[Math.floor(Math.random() * hexadecimal_characters_array.length)]
+        const randomElement2 = hexadecimal_characters_array[Math.floor(Math.random() * hexadecimal_characters_array.length)]
+        const randomElement3 = hexadecimal_characters_array[Math.floor(Math.random() * hexadecimal_characters_array.length)]
+        const randomElement4 = hexadecimal_characters_array[Math.floor(Math.random() * hexadecimal_characters_array.length)]
+        const randomElement5 = hexadecimal_characters_array[Math.floor(Math.random() * hexadecimal_characters_array.length)]
+        const randomElement6 = hexadecimal_characters_array[Math.floor(Math.random() * hexadecimal_characters_array.length)]
+        let random_color_code = "#"
+        
+        const utskrift = random_color_code + randomElement1 + randomElement2 + randomElement3 + randomElement4 + randomElement5 + randomElement6
+
+        document.getElementById("random_color").innerHTML = utskrift
+
+        //PROBLEM 2
+        const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
+
+        //Din kode for å løse problem 2 her.
+        function sjekkBetingelse() {
+            if (programming_words.includes("betingelse")) {
+                document.getElementById("betingelse_sjekk").innerText = "Ja"
+            } else {
+                document.getElementById("betingelse_sjekk").innerText = "Nei"
+            }
+        }
+        sjekkBetingelse()
+
+        function sjekkAlgoritme() {
+            if (programming_words.includes("algoritme")) {
+                document.getElementById("algoritme_sjekk").innerText = "Ja"
+            } else {
+                document.getElementById("algoritme_sjekk").innerText = "Nei"
+            }
+        }
+        sjekkAlgoritme()
+       
+        function sjekkProblemlosning() {
+            if (programming_words.includes("problemlosning")) {
+                document.getElementById("problemlosning_sjekk").innerText = "Ja"
+            } else {
+                document.getElementById("problemlosning_sjekk").innerText = "Nei"
+            }
+        }
+       sjekkProblemlosning();
+
+        //PROBLEM 3
+        const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17]
+        const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
+
+        
+        //Din kode for å løse problem 3 her.
+        const sum_array_en = tall_array_en.reduce((total, tall) => total + tall, 0);
+        const sum_array_to = tall_array_to.reduce((total, tall) => total + tall, 0);
+        const antall_array_en = tall_array_en.length;
+        const antall_array_to = tall_array_to.length;
+
+        const avg_array_en = sum_array_en / antall_array_en;
+        const avg_array_to = sum_array_to / antall_array_to;
+
+
+        document.getElementById("avg_array_en").innerText = avg_array_en
+        document.getElementById("avg_array_to").innerText = avg_array_to
+    </script>
+</body>
+</html>
