@@ -14,13 +14,28 @@
     <script>
         /*
             Hva er en rekursiv funksjon?
-
+        
             --Ditt svar her. Husk kilder--
-        */
 
-        function numberSelector(tilfeldigTall) {
-            let tall = Math.floor(Math.random())
+            Min forståelse av en rekursiv funksjon er at det er en funksjon som kaller på seg selv gjentatte ganger. Dette fortsetter til funksjonen løser seg selv eller vi gir den beskjed til å stoppe. 
+        */
+        
+
+        const liste = [];
+
+        function numberSelector() {
+            let tall = Math.floor(Math.random() * 9) + 1;
+
+            liste.push(tall);
+
+            if (tall === 4 || tall === 7) {
+                return;
+            } else {
+                numberSelector();
+            }
         }
+        numberSelector();
+        document.getElementById("numberList").innerHTML = liste
     </script>
 </body>
 </html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekursive funksjoner i JavaScript</title>
+    <style>
+        /* Litt enkel styling for å gjøre det tydeligere */
+        body { font-family: sans-serif; line-height: 1.6; }
+        ul { border: 1px solid #ccc; padding: 10px; list-style-type: none; }
+        li { padding: 5px; border-bottom: 1px dotted #eee; }
+        li:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+    <h1>Rekursiv utskrift av tall</h1>
+    <ul id="numberList">
+        <li>Tall vil skrives ut her.</li>
+    </ul>
+
+    <script>
+        /*
+            Hva er en rekursiv funksjon?
+
+            En **rekursiv funksjon** er en funksjon som kaller seg selv i sin egen definisjon. 
+            Den løser et problem ved å bryte det ned i mindre, identiske delproblemer.
+
+            En rekursiv funksjon må alltid ha to deler:
+            1.  **Basistilfelle (Base Case):** En betingelse (stoppbetingelse) som avslutter 
+                rekursjonen. Uten et basistilfelle vil funksjonen kalle seg selv i 
+                det uendelige (noe som fører til en "stack overflow"-feil).
+            2.  **Rekursivt steg (Recursive Step):** Handlingen der funksjonen kaller seg 
+                selv, vanligvis med endrede argumenter som beveger seg nærmere basistilfellet.
+
+            Kilder: Mozilla Developer Network (MDN) Web Docs, lærebøker i informatikk (f.eks. "Structure and Interpretation of Computer Programs").
+        */
+
+        // Hent liste-elementet fra DOM én gang for effektivitet
+        const numberListElement = document.getElementById("numberList");
+
+        // En "flagg"-variabel for å håndtere opprydding ved første kjøring
+        let isFirstRun = true;
+
+        function numberSelector() {
+            // 1. Opprydding (kjøres kun første gang)
+            if (isFirstRun) {
+                numberListElement.innerHTML = ""; // Fjerner "Tall vil skrives ut her."
+                isFirstRun = false;
+            }
+
+            // 2. Velg et tilfeldig tall (1-9)
+            // Math.random() gir 0-0.999...
+            // * 9           gir 0-8.999...
+            // Math.floor()  gir heltall 0-8
+            // + 1           gir heltall 1-9
+            const randomNumber = Math.floor(Math.random() * 9) + 1;
+
+            // 3. Lag et nytt listeelement og legg det til i <ul>
+            const li = document.createElement("li");
+            li.textContent = `Valgte: ${randomNumber}`;
+            numberListElement.appendChild(li);
+
+            // 4. Sjekk basistilfellet (stoppbetingelsen)
+            if (randomNumber === 4 || randomNumber === 7) {
+                // BASISTILFELLE: Vi har truffet 4 eller 7
+                console.log(`Stoppet på ${randomNumber}. Rekursjon avsluttet.`);
+                
+                // Legg til en sluttmelding i listen
+                const stopLi = document.createElement("li");
+                stopLi.style.fontWeight = "bold";
+                stopLi.style.color = "darkred";
+                stopLi.textContent = `Stopp! Basistilfellet (${randomNumber}) er nådd.`;
+                numberListElement.appendChild(stopLi);
+                
+                return; // Avslutter funksjonen (og dermed rekursjonen)
+            
+            } else {
+                // 5. REKURSIVT STEG: Kall funksjonen på nytt
+                // Vi legger inn en liten forsinkelse (setTimeout) slik at vi 
+                // rekker å se tallene dukke opp ett etter ett på skjermen.
+                // Uten dette ville alt skjedd umiddelbart.
+                setTimeout(numberSelector, 400); // Kaller seg selv etter 400ms
+            }
+        }
+
+        // --- Start prosessen ---
+        // Vi kaller funksjonen første gang for å sette i gang løkken.
+        numberSelector();
+
+    </script>
+</body>
+</html>
