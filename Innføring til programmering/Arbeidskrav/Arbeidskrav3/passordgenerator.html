@@ -8,7 +8,33 @@
 <body>
     <h1>Passordgenerator</h1>
     <!-- Felter for brukervalg her -->
-    
+     <form>
+        <label>Passordlengde:
+            <input type="number" id="length">
+        </label>
+     </form>
+     <br>
+     <form id="case">
+        <label>Bare små bokstaver:
+            <input type="radio" name="case" id="lowercase" checked>
+        </label>
+        <label>Bare store bokstaver:
+            <input type="radio" name="case" id="uppercase">
+        </label>
+        <label>Begge deler:
+            <input type="radio" name="case" id="lowercase and uppercase">
+        </label>
+    </form>
+    <br>
+        <label>|  Med tall:
+            <input type="checkbox" id="numbers">
+        </label>
+        <label>|  Med symboler:
+            <input type="checkbox" id="symbols">
+            <br>
+            <br>
+
+     <button onclick="passwordgenerator()">Generer passord</button>
 
      <p>Ditt passord: <span id="generatedPassword"></span></p>
 
@@ -19,7 +45,18 @@
         const symbols = "!@#$%^&*()_+-=[]{}|;:',.<>?/`~";
 
         function passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
-            /* Din kode her */
+    
+            const length = parseInt(document.getElementById("length").value);
+            const includeLowercase = document.getElementById("lowercase").checked;
+            const includeUppercase = document.getElementById("uppercase").checked;
+            const includeNumbers = document.getElementById("numbers").checked;
+            const includeSymbols = document.getElementById("symbols").checked;
+
+            let include = "";
+            if(case == lowercase) {
+                
+            }
+
         }
      </script>
 </body>
