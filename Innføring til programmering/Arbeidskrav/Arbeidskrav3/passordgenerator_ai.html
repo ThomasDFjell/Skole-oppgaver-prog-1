@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passordgenerator</title>
+    <style>
+        /* Litt enkel CSS for lesbarhet */
+        body { font-family: sans-serif; line-height: 1.6; max-width: 600px; margin: 20px auto; padding: 15px; background-color: #f4f4f4; border-radius: 8px;}
+        h1 { text-align: center; }
+        div { margin-bottom: 10px; }
+        label { display: inline-block; width: 250px; }
+        input[type="number"] { width: 60px; }
+        button { display: block; width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 15px;}
+        button:hover { background-color: #0056b3; }
+        #generatedPassword { font-weight: bold; color: #333; background-color: #fff; padding: 5px 10px; border: 1px solid #ddd; border-radius: 4px; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <h1>Passordgenerator</h1>
+    
+    <div>
+        <label for="length">Passordlengde:</label>
+        <input type="number" id="length" value="16" min="6" max="128">
+    </div>
+    <div>
+        <input type="checkbox" id="includeLowercase" checked>
+        <label for="includeLowercase">Inkluder små bokstaver (a-z)</label>
+    </div>
+    <div>
+        <input type="checkbox" id="includeUppercase" checked>
+        <label for="includeUppercase">Inkluder store bokstaver (A-Z)</label>
+    </div>
+    <div>
+        <input type="checkbox" id="includeNumbers" checked>
+        <label for="includeNumbers">Inkluder tall (0-9)</label>
+    </div>
+    <div>
+        <input type="checkbox" id="includeSymbols" checked>
+        <label for="includeSymbols">Inkluder spesialtegn (!@#...)</label>
+    </div>
+
+    <button id="generateBtn">Generer Passord</button>
+
+     <p>Ditt passord: <span id="generatedPassword"></span></p>
+
+     <script>
+        const lowercase = "abcdefghijklmnopqrstuvwxyz";
+        const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const numbers = "0123456789";
+        const symbols = "!@#$%^&*()_+-=[]{}|;:',.<>?/`~";
+
+        // *** HER ER FUNKSJONEN DU BA OM ***
+        function passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
+            
+            // 1. Bygg en "pool" av tillatte tegn basert på brukerens valg
+            let allowedChars = "";
+            if (includeLowercase) {
+                allowedChars += lowercase;
+            }
+            if (includeUppercase) {
+                allowedChars += uppercase;
+            }
+            if (includeNumbers) {
+                allowedChars += numbers;
+            }
+            if (includeSymbols) {
+                allowedChars += symbols;
+            }
+
+            // 2. Feilhåndtering: Hva hvis brukeren ikke har valgt noe?
+            if (allowedChars.length === 0) {
+                document.getElementById("generatedPassword").textContent = "Velg minst én tegntype!";
+                return; // Avslutter funksjonen
+            }
+
+            // 3. Bygg selve passordet
+            let generatedPassword = "";
+            for (let i = 0; i < length; i++) {
+                // Velg en tilfeldig indeks fra 'allowedChars'
+                const randomIndex = Math.floor(Math.random() * allowedChars.length);
+                
+                // Legg til tegnet på den tilfeldige indeksen i passordet
+                generatedPassword += allowedChars[randomIndex];
+            }
+
+            // 4. Vis passordet på siden
+            document.getElementById("generatedPassword").textContent = generatedPassword;
+        }
+
+        // --- "Lim-kode" for å koble knapp til funksjon ---
+
+        // Hent knappen
+        const generateButton = document.getElementById("generateBtn");
+
+        // Legg til en 'event listener' som lytter etter klikk
+        generateButton.addEventListener("click", () => {
+            // Hent verdiene fra alle inndatafeltene
+            const length = parseInt(document.getElementById("length").value, 10); // Gjør om til tall
+            const includeLowercase = document.getElementById("includeLowercase").checked; // true/false
+            const includeUppercase = document.getElementById("includeUppercase").checked; // true/false
+            const includeNumbers = document.getElementById("includeNumbers").checked; // true/false
+            const includeSymbols = document.getElementById("includeSymbols").checked; // true/false
+
+            // Kall hovedfunksjonen med verdiene som brukeren har valgt
+            passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols);
+        });
+
+     </script>
+</body>
+</html>

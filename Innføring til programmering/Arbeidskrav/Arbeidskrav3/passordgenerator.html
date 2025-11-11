@@ -44,7 +44,7 @@
         const numbers = "0123456789";
         const symbols = "!@#$%^&*()_+-=[]{}|;:',.<>?/`~";
 
-        function passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
+        function passwordgenerator() {
     
             const length = parseInt(document.getElementById("length").value);
             const includeLowercase = document.getElementById("lowercase").checked;
@@ -53,10 +53,24 @@
             const includeSymbols = document.getElementById("symbols").checked;
 
             let include = "";
-            if(case == lowercase) {
-                
+            if (includeLowercase) {
+                include += lowercase
+            } else if (includeUppercase) {
+                include += uppercase
+            } else {
+                include += lowercase + uppercase
+            }  if (includeNumbers) {
+                include += numbers
+            }  if (includeSymbols) {
+                include += symbols
             }
-
+            let generatedPassword = "";
+            for (let p = 0; p < length; p++) {
+                const random = Math.floor(Math.random() * include.length);
+                generatedPassword += include[random];
+            }
+        
+            document.getElementById("generatedPassword").textContent = generatedPassword;
         }
      </script>
 </body>
